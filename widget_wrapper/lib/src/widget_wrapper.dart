@@ -135,33 +135,33 @@ class WidgetWrapper extends pw.ImageProvider {
   }) async {
     assert(pixelRatio > 0);
 
-    if (!constraints.hasBoundedHeight || !constraints.hasBoundedHeight) {
-      throw Exception(
-          'Unable to convert an unbounded widget. Add maxWidth and maxHeight to the constraints.');
-    }
+    // if (!constraints.hasBoundedHeight || !constraints.hasBoundedHeight) {
+    //   throw Exception(
+    //       'Unable to convert an unbounded widget. Add maxWidth and maxHeight to the constraints.');
+    // }
 
-    widget = ConstrainedBox(
-      constraints: constraints,
-      child: widget,
-    );
+    // widget = ConstrainedBox(
+    //   constraints: constraints,
+    //   child: widget,
+    // );
 
-    final prop = DiagnosticPropertiesBuilder();
-    widget.debugFillProperties(prop);
+    // final prop = DiagnosticPropertiesBuilder();
+    // widget.debugFillProperties(prop);
 
-    if (prop.properties.isEmpty) {
-      throw ErrorDescription('Unable to get the widget properties');
-    }
+    // if (prop.properties.isEmpty) {
+    //   throw ErrorDescription('Unable to get the widget properties');
+    // }
 
-    final computedConstraints = prop.properties
-        .whereType<DiagnosticsProperty<BoxConstraints>>()
-        .first
-        .value;
+    // final computedConstraints = prop.properties
+    //     .whereType<DiagnosticsProperty<BoxConstraints>>()
+    //     .first
+    //     .value;
 
-    if (computedConstraints == null ||
-        !computedConstraints.hasBoundedWidth ||
-        !computedConstraints.hasBoundedWidth) {
-      throw Exception('Unable to convert an unbounded widget.');
-    }
+    // if (computedConstraints == null ||
+    //     !computedConstraints.hasBoundedWidth ||
+    //     !computedConstraints.hasBoundedWidth) {
+    //   throw Exception('Unable to convert an unbounded widget.');
+    // }
 
     final repaintBoundary = RenderRepaintBoundary();
     final view = View.of(context);
